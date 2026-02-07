@@ -1,0 +1,14 @@
+# Credit Card Fraud Detection - Preprocessing Pipeline
+# Required Dependencies
+
+pandas>=1.5.0
+numpy>=1.23.0
+scikit-learn>=1.2.0
+imbalanced-learn>=0.10.0
+joblib>=1.2.0
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+
+from data_preprocessing import load_processed_data
+X_train, X_val, X_test, y_train, y_val, y_test = load_processed_data()

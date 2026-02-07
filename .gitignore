@@ -1,0 +1,56 @@
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and reports
+*.log
+htmlcov/
+.coverage
+
+# Test and cache
+.pytest_cache/
+.cache/
+
+# Data files (ignore original large dataset and generated processed data)
+/creditcard.csv
+/processed_data/
+
+# Numpy / binary artifacts
+*.npy
+*.npz
+*.joblib
+
+# Environment variables
+.env
+
+# Optional: ignore models and large artifacts
+models/
+artifacts/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
