@@ -18,6 +18,10 @@ Get a free API key at: https://aistudio.google.com/apikey
 """
 
 import os
+from dotenv import load_dotenv
+
+# Load .env file so GEMINI_API_KEY is available via os.environ
+load_dotenv()
 from typing import Dict, List, Optional
 
 try:
@@ -74,12 +78,19 @@ class GeminiExplainer:
             )
 
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY", "")
-        if not self.api_key:
+        if not self.api_key or self.api_key in ("your-api-key-here", "<your-key>"):
             raise ValueError(
-                "Gemini API key not found. Either:\n"
-                "  1. Set env var: GEMINI_API_KEY=<your-key>\n"
+                "Gemini API key not found or is a placeholder. Either:\n"
+                "  1. Set GEMINI_API_KEY in your .env file\n"
                 "  2. Pass api_key='...' to GeminiExplainer()\n"
                 "Get a free key at: https://aistudio.google.com/apikey"
+            )
+
+        # Quick validation: Gemini keys typically start with 'AIza'
+        if not self.api_key.startswith("AIza"):
+            raise ValueError(
+                f"Invalid API key format (expected 'AIza...'). "
+                f"Check your .env file or passed key."
             )
 
         genai.configure(api_key=self.api_key)
