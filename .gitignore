@@ -19,5 +19,13 @@ results1/
 # VS Code
 .vscode/
 
+# Large data files (stored on Google Drive)
 creditcard.csv
 processed_data/
+
+# Streamlit secrets (contains API keys)
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db

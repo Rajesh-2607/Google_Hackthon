@@ -21,6 +21,14 @@ from dotenv import load_dotenv
 # Load .env file (picks up GEMINI_API_KEY automatically)
 load_dotenv()
 
+# ── Ensure data files are available (downloads from Google Drive if needed) ──
+from data_loader import files_exist_locally, ensure_data_available
+
+if not files_exist_locally():
+    with st.spinner("Downloading data files from Google Drive..."):
+        if not ensure_data_available():
+            st.stop()
+
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
