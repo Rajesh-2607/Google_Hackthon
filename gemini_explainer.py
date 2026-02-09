@@ -69,7 +69,7 @@ class GeminiExplainer:
     def __init__(
         self,
         api_key: Optional[str] = None,
-        model_name: str = "Gemini 2.5 Flash Native Audio Dialog",
+        model_name: str = "gemini-2.5-flash-lite",
     ):
         if not GEMINI_AVAILABLE:
             raise ImportError(
